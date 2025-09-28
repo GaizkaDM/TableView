@@ -126,7 +126,7 @@ public class ControladorVentana {
             return; // Salimos del metodo, no se añade a la lista
         }
 
-        // Si todo esta bien, añadimos a la lista y limpiamos campos
+        // Si está bien, añadimos a la lista y limpiamos campos
         personList.add(p);
         txtFirstName.clear();
         txtLastName.clear();
