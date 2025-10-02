@@ -72,6 +72,10 @@ public class Person {
     }
 
     public void setBirthDate(LocalDate birthDate) {
+        IsValidBirthDate(birthDate);
+    }
+
+    private void IsValidBirthDate(LocalDate birthDate){
         if (birthDate == null) {
             throw new IllegalArgumentException("La fecha de nacimiento no puede estar vacía.");
         }
@@ -83,7 +87,6 @@ public class Person {
         }
         this.birthDate = birthDate;
     }
-
 }
 
 
