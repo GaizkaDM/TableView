@@ -9,6 +9,10 @@ import javafx.scene.control.Alert;
  * Esta clase incluye validaciones que, en caso de error, muestran un mensaje emergente mediante {@link Alert}
  * en lugar de lanzar excepciones, de forma que el usuario final pueda entender qué ocurrió.
  * </p>
+ *
+ * @author Gaizka
+ * @version 1.0
+ * @see Alert
  */
 public class Person {
     private int id;
@@ -36,21 +40,57 @@ public class Person {
     // Getters
     // ------------------------
 
+    /**
+     * Obtiene el identificador único de la persona.
+     *
+     * @return el id de la persona
+     */
     public int getId() { return id; }
+
+    /**
+     * Obtiene el nombre de la persona.
+     *
+     * @return el nombre de la persona
+     */
     public String getFirstName() { return firstName; }
+
+    /**
+     * Obtiene el apellido de la persona.
+     *
+     * @return el apellido de la persona
+     */
     public String getLastName() { return lastName; }
+
+    /**
+     * Obtiene la fecha de nacimiento de la persona.
+     *
+     * @return la fecha de nacimiento
+     */
     public LocalDate getBirthDate() { return birthDate; }
 
     // ------------------------
-    // Setters con validación y Alert
+    // Setters con validación
     // ------------------------
 
+    /**
+     * Establece el identificador de la persona.
+     *
+     * @param id identificador único (no puede ser negativo)
+     * @throws IllegalArgumentException si el valor es negativo
+     */
     public void setId(int id) {
         if (id < 0) {
-           throw new IllegalArgumentException("El id no puede ser negativo");
+            throw new IllegalArgumentException("El id no puede ser negativo");
         }
         this.id = id;
     }
+
+    /**
+     * Establece el nombre de la persona.
+     *
+     * @param firstName nombre de la persona (solo letras)
+     * @throws IllegalArgumentException si el nombre es nulo, vacío o contiene caracteres no alfabéticos
+     */
     public void setFirstName(String firstName) {
         if (firstName == null || firstName.trim().isEmpty()) {
             throw new IllegalArgumentException("El nombre no puede estar vacío.");
@@ -61,6 +101,12 @@ public class Person {
         this.firstName = firstName.trim();
     }
 
+    /**
+     * Establece el apellido de la persona.
+     *
+     * @param lastName apellido de la persona (solo letras)
+     * @throws IllegalArgumentException si el apellido es nulo, vacío o contiene caracteres no alfabéticos
+     */
     public void setLastName(String lastName) {
         if (lastName == null || lastName.trim().isEmpty()) {
             throw new IllegalArgumentException("El apellido no puede estar vacío.");
@@ -71,10 +117,22 @@ public class Person {
         this.lastName = lastName.trim();
     }
 
+    /**
+     * Establece la fecha de nacimiento de la persona.
+     *
+     * @param birthDate fecha de nacimiento (no nula, no futura y posterior a 1900)
+     * @throws IllegalArgumentException si la fecha no cumple las condiciones
+     */
     public void setBirthDate(LocalDate birthDate) {
         IsValidBirthDate(birthDate);
     }
 
+    /**
+     * Valida y asigna la fecha de nacimiento.
+     *
+     * @param birthDate fecha de nacimiento a validar
+     * @throws IllegalArgumentException si la fecha es nula, futura o anterior a 1900
+     */
     private void IsValidBirthDate(LocalDate birthDate){
         if (birthDate == null) {
             throw new IllegalArgumentException("La fecha de nacimiento no puede estar vacía.");
@@ -88,6 +146,7 @@ public class Person {
         this.birthDate = birthDate;
     }
 }
+
 
 
 
