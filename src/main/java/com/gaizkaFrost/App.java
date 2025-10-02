@@ -25,6 +25,7 @@ import org.slf4j.LoggerFactory;
 public class App extends Application {
 
     private static final Logger logger = LoggerFactory.getLogger(App.class);
+
     /**
      * Metodo principal de inicialización de JavaFX.
      * <ul>
