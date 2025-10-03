@@ -3,7 +3,8 @@ package com.gaizkaFrost;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
-
+import java.io.InputStream;
+import java.util.Properties;
 /**
  * Clase {@code Config} encargada de gestionar la configuración de la aplicación
  * a partir de un archivo externo {@code config.properties}.
@@ -17,25 +18,22 @@ import java.util.Properties;
  * @version 1.0
  */
 public class Config {
-    private static final String CONFIG_FILE = "config.properties";
-    private static Properties properties = new Properties();
+    private static final Properties props = new Properties();
 
     static {
-        try (FileInputStream fis = new FileInputStream(CONFIG_FILE)) {
-            properties.load(fis);
-        } catch (IOException e) {
-            throw new RuntimeException("Error al leer el archivo de configuración: " + CONFIG_FILE, e);
+        try (InputStream input = Config.class.getResourceAsStream("/config.properties")) {
+            if (input == null) {
+                throw new RuntimeException("No se encontró config.properties en resources");
+            }
+            props.load(input);
+        } catch (Exception e) {
+            throw new RuntimeException("Error al leer el archivo de configuración: config.properties", e);
         }
     }
 
-    /**
-     * Obtiene el valor asociado a una clave en el archivo de configuración.
-     *
-     * @param key la clave de la propiedad que se desea recuperar
-     * @return el valor correspondiente a la clave, o {@code null} si no existe
-     */
     public static String get(String key) {
-        return properties.getProperty(key);
+        return props.getProperty(key);
     }
 }
+
 
