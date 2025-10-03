@@ -40,9 +40,6 @@ public class ControladorVentana {
     @FXML private TableColumn<Person, String> colLastName;
     @FXML private TableColumn<Person, LocalDate> colBirthDate;
 
-    // DAO para acceder a la base de datos
-    private final PersonDAO personDAO = new PersonDAO();
-
     // Lista observable que se refresca desde la base de datos
     private ObservableList<Person> personList = FXCollections.observableArrayList();
 
