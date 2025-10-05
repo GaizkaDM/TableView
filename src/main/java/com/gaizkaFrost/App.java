@@ -7,6 +7,9 @@ import javafx.stage.Stage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.Locale;
+import java.util.ResourceBundle;
+
 /**
  * Clase principal de la aplicación JavaFX.
  * <p>
@@ -44,7 +47,11 @@ public class App extends Application {
 
         logger.info("Lanzando la aplicación");
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/tableView.fxml"));
+        Locale locale = Locale.getDefault(); // o forzar new Locale("es", "ES")
+        ResourceBundle bundle = ResourceBundle.getBundle("com.gaizkaFrost.idiomas.mensajes", locale);
+
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/tableView.fxml"),bundle);
         Scene scene = new Scene(loader.load(), 600, 500);
         stage.setScene(scene);
         stage.setMinWidth(543);

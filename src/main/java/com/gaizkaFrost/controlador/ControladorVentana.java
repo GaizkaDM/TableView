@@ -148,7 +148,7 @@ public class ControladorVentana {
     /**
      * Cierra la ventana actual de la aplicación.
      * <p>
-     * Este método obtiene la ventana activa a partir del componente
+     * Este metodo obtiene la ventana activa a partir del componente
      * {@code tableView} y la cierra utilizando la clase {@code Stage}.
      * </p>
      *
