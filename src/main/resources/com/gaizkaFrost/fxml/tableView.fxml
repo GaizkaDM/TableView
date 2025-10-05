@@ -13,15 +13,33 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
+<?import javafx.scene.control.CustomMenuItem?>
+<?import javafx.scene.input.KeyCodeCombination?>
 <VBox alignment="TOP_CENTER" spacing="10" stylesheets="@../css/styles.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gaizkaFrost.controlador.ControladorVentana">
    <MenuBar prefHeight="33.0" prefWidth="500.0">
      <menus>
          <Menu text="_File">
-             <MenuItem fx:id="menuClose" onAction="#handleClose" text="_Close" />
+             <CustomMenuItem fx:id="menuClose" onAction="#handleClose">
+                 <content>
+                     <Label text="_Close" mnemonicParsing="true">
+                         <tooltip>
+                             <Tooltip text="Cierra la aplicación (Ctrl + W)"/>
+                         </tooltip>
+                     </Label>
+                 </content>
+             </CustomMenuItem>
          </Menu>
 
          <Menu text="_Help">
-             <MenuItem fx:id="menuAbout" onAction="#handleAbout" text="_About" />
+             <CustomMenuItem fx:id="menuAbout" onAction="#handleAbout">
+                 <content>
+                     <Label text="_About" mnemonicParsing="true">
+                         <tooltip>
+                             <Tooltip text="Muestra autor y versión (F1)"/>
+                         </tooltip>
+                     </Label>
+                 </content>
+             </CustomMenuItem>
          </Menu>
      </menus>
    </MenuBar>

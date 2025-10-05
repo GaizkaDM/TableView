@@ -7,6 +7,7 @@ import javafx.scene.control.*;
 import com.gaizkaFrost.modelos.Person;
 import com.gaizkaFrost.DAO.PersonDAO;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -29,6 +30,8 @@ import java.util.List;
 public class ControladorVentana {
 
     private static final Logger logger = LoggerFactory.getLogger(ControladorVentana.class);
+    public CustomMenuItem menuAbout;
+    public CustomMenuItem menuClose;
 
     @FXML private TextField txtFirstName;
     @FXML private TextField txtLastName;
@@ -39,7 +42,6 @@ public class ControladorVentana {
     @FXML private TableColumn<Person, String> colFirstName;
     @FXML private TableColumn<Person, String> colLastName;
     @FXML private TableColumn<Person, LocalDate> colBirthDate;
-
     // Lista observable que se refresca desde la base de datos
     private ObservableList<Person> personList = FXCollections.observableArrayList();
 
@@ -53,8 +55,6 @@ public class ControladorVentana {
         colFirstName.setCellValueFactory(new PropertyValueFactory<>("firstName"));
         colLastName.setCellValueFactory(new PropertyValueFactory<>("lastName"));
         colBirthDate.setCellValueFactory(new PropertyValueFactory<>("birthDate"));
-
-        refreshTable();
     }
 
     /**
@@ -144,6 +144,35 @@ public class ControladorVentana {
         Alert alert = new Alert(type, msg);
         alert.showAndWait();
     }
+
+    /**
+     * Cierra la ventana actual de la aplicación.
+     * <p>
+     * Este método obtiene la ventana activa a partir del componente
+     * {@code tableView} y la cierra utilizando la clase {@code Stage}.
+     * </p>
+     *
+     * @see javafx.stage.Stage
+     */
+    @FXML
+    private void handleClose() {
+        ((Stage) tableView.getScene().getWindow()).close();
+    }
+
+    /**
+     * Muestra una ventana de información con detalles sobre la aplicación.
+     * <p>
+     * El cuadro de diálogo incluye el nombre del autor y la versión de la aplicación.
+     * </p>
+     *
+     * @see javafx.scene.control.Alert
+     */
+    @FXML
+    private void handleAbout() {
+        new Alert(Alert.AlertType.INFORMATION,
+                "Autor: Gaizka Rodríguez\nVersión: 1.0").showAndWait();
+    }
+
 }
 
 
