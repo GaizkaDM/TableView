@@ -48,7 +48,7 @@ public class App extends Application {
         logger.info("Lanzando la aplicación");
 
         Locale locale = Locale.getDefault(); // o forzar new Locale("es", "ES")
-        ResourceBundle bundle = ResourceBundle.getBundle("com.gaizkaFrost.idiomas.mensajes", locale);
+        ResourceBundle bundle = ResourceBundle.getBundle("idiomas.men", locale);
 
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/tableView.fxml"),bundle);
