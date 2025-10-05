@@ -9,49 +9,60 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Tooltip?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
 <VBox alignment="TOP_CENTER" spacing="10" stylesheets="@../css/styles.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gaizkaFrost.controlador.ControladorVentana">
    <MenuBar prefHeight="33.0" prefWidth="500.0">
      <menus>
-       <Menu mnemonicParsing="false" text="File">
-         <items>
-           <MenuItem mnemonicParsing="false" text="Close" />
-         </items>
-       </Menu>
-       <Menu mnemonicParsing="false" text="Edit">
-         <items>
-           <MenuItem mnemonicParsing="false" text="Delete" />
-         </items>
-       </Menu>
-       <Menu mnemonicParsing="false" text="Help">
-         <items>
-           <MenuItem mnemonicParsing="false" text="About" />
-         </items>
-       </Menu>
+         <Menu text="_File">
+             <MenuItem fx:id="menuClose" onAction="#handleClose" text="_Close" />
+         </Menu>
+
+         <Menu text="_Help">
+             <MenuItem fx:id="menuAbout" onAction="#handleAbout" text="_About" />
+         </Menu>
      </menus>
    </MenuBar>
 
     <HBox spacing="10">
         <Label text="First Name:" />
-        <TextField fx:id="txtFirstName" promptText="First Name" />
-        <Button onAction="#handleAdd" text="Add" />
+        <TextField fx:id="txtFirstName" promptText="First Name">
+         <tooltip>
+            <Tooltip text="Nombre" />
+         </tooltip></TextField>
+        <Button onAction="#handleAdd" text="Add">
+         <tooltip>
+            <Tooltip text="Añadir a la lista" />
+         </tooltip></Button>
     </HBox>
 
     <HBox spacing="10">
         <Label text="Last Name:" />
-        <TextField fx:id="txtLastName" promptText="Last Name" />
+        <TextField fx:id="txtLastName" promptText="Last Name">
+         <tooltip>
+            <Tooltip text="Apellido" />
+         </tooltip></TextField>
     </HBox>
 
     <HBox spacing="10">
         <Label text="Birth Date:" />
-        <DatePicker fx:id="datePicker" />
+        <DatePicker fx:id="datePicker">
+         <tooltip>
+            <Tooltip text="Fecha de nacimiento" />
+         </tooltip></DatePicker>
     </HBox>
 
     <HBox spacing="10">
-        <Button onAction="#handleRestore" text="Restore Rows" />
-        <Button onAction="#handleDelete" text="Delete Selected Rows" />
+        <Button onAction="#handleRestore" text="Restore Rows">
+         <tooltip>
+            <Tooltip text="restaurar cambios" />
+         </tooltip></Button>
+        <Button onAction="#handleDelete" text="Delete Selected Rows">
+         <tooltip>
+            <Tooltip text="Borrar filas seleccionadas" />
+         </tooltip></Button>
     </HBox>
 
     <TableView fx:id="tableView" prefHeight="300" prefWidth="500" VBox.vgrow="ALWAYS">
