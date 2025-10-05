@@ -8,5 +8,7 @@ module com.gaizkaFrost {
     exports com.gaizkaFrost;
 
     opens com.gaizkaFrost.modelos to javafx.base;
+    exports com.gaizkaFrost.util;
+    opens com.gaizkaFrost.util to javafx.fxml;
 
 }

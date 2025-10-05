@@ -1,10 +1,9 @@
 package com.gaizkaFrost.DAO;
 
 import com.gaizkaFrost.modelos.Person;
-import com.gaizkaFrost.ConexionBD;
+import com.gaizkaFrost.util.ConexionBD;
 
 import java.sql.*;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
