@@ -4,7 +4,7 @@
     <!-- Appender para archivo -->
     <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <!-- Ruta del archivo de log -->
-        <file>target/logs/app.log</file>
+        <file>logs/app.log</file>
 
         <!-- Formato de salida -->
         <encoder>
