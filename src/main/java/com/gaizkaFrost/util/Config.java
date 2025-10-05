@@ -1,10 +1,8 @@
-package com.gaizkaFrost;
+package com.gaizkaFrost.util;
 
-import java.io.FileInputStream;
-import java.io.IOException;
 import java.util.Properties;
 import java.io.InputStream;
-import java.util.Properties;
+
 /**
  * Clase {@code Config} encargada de gestionar la configuración de la aplicación
  * a partir de un archivo externo {@code config.properties}.
