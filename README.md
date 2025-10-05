@@ -43,7 +43,7 @@ Aplicación JavaFX que gestiona datos de personas en una tabla con conexión a b
 
 ✅ Error de conexión a BD → Revisar `config.properties` (usuario, contraseña, URL).
 ✅ NullPointer en TableView → Verificar que FXML y Controlador estén vinculados correctamente.
-
+✅ Revisar que el contenedor de mariaDb este en funcionamiento antes de ejecutar el jar.
 ---
 
 ## ⚙️ Requisitos de ejecución
@@ -61,9 +61,9 @@ Aplicación JavaFX que gestiona datos de personas en una tabla con conexión a b
 
 
 ✅ Paso 1: Configurar base de datos y credenciales en config.properties.
-✅ Paso 2: Compilar con Maven → mvn clean install
-✅ Paso 3: Ejecutar aplicación → mvn javafx:run o desde el IDE.
-
+✅ Paso 2: Lanzar docker con el contenedor mariaDb.
+✅ Paso 3: Usar el script de la carpeta resources/SQL/init.sql para crear la base de datos.
+✅ Paso 4: Usar mvn package para generar el jar y hacer dobleClick sobre èl.
 
 ---
 
