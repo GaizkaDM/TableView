@@ -1,4 +1,6 @@
-package com.gaizkaFrost.util;
+package com.gaizkaFrost;
+
+import com.gaizkaFrost.util.Config;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
