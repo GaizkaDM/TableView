@@ -3,12 +3,10 @@ CREATE DATABASE IF NOT EXISTS tableview_db
   DEFAULT CHARACTER SET utf8mb4
   DEFAULT COLLATE utf8mb4_general_ci;
 
--- Usar la base de datos
-USE tableview_db;
+-- Crear la tabla directamente con referencia completa
+DROP TABLE IF EXISTS tableview_db.person;
 
--- Crear la tabla 'person'
-DROP TABLE IF EXISTS person;
-CREATE TABLE person (
+CREATE TABLE tableview_db.person (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(100) NOT NULL,
     apellido VARCHAR(100) NOT NULL,
@@ -16,7 +14,7 @@ CREATE TABLE person (
 );
 
 -- Insertar algunos registros de ejemplo
-INSERT INTO person (nombre, apellido, fecha_nacimiento) VALUES
+INSERT INTO tableview_db.person (nombre, apellido, fecha_nacimiento) VALUES
 ('Ana', 'García', '1995-04-12'),
 ('Luis', 'Martínez', '1988-11-23'),
 ('María', 'Fernández', '2001-07-05'),
