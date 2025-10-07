@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+
+<VBox xmlns="http://javafx.com/javafx/23"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.gaizkaFrost.controlador.EditPersonController"
+      alignment="CENTER" spacing="10">
+
+    <padding>
+        <Insets top="15" right="15" bottom="15" left="15" />
+    </padding>
+
+    <Label text="Editar Persona" style="-fx-font-size: 18; -fx-font-weight: bold;" />
+
+    <TextField fx:id="txtFirstName" promptText="Nombre" />
+    <TextField fx:id="txtLastName" promptText="Apellido" />
+    <DatePicker fx:id="datePicker" promptText="Fecha de nacimiento" />
+
+    <HBox spacing="10">
+        <Button text="Guardar" onAction="#handleSave" defaultButton="true" />
+        <Button text="Cancelar" onAction="#handleCancel" cancelButton="true" />
+    </HBox>
+</VBox>
+
