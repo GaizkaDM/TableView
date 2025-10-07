@@ -1,7 +1,7 @@
 package com.gaizkaFrost.DAO;
 
 import com.gaizkaFrost.modelos.Person;
-import com.gaizkaFrost.util.ConexionBD;
+import com.gaizkaFrost.ConexionBD;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -54,7 +54,7 @@ public class PersonDAO {
      *
      * @param p el objeto {@link Person} que se desea insertar
      */
-    public static void insert(Person p) {
+    public static void insert(Person p) throws SQLException {
         String sql = "INSERT INTO person(first_name,last_name,birth_date) VALUES(?,?,?)";
         try (Connection conn = ConexionBD.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
@@ -63,7 +63,7 @@ public class PersonDAO {
             ps.setDate(3, Date.valueOf(p.getBirthDate()));
             ps.executeUpdate();
         } catch (SQLException e) {
-            e.printStackTrace();
+        throw new SQLException("Error insertando persona: " + e.getMessage(), e);
         }
     }
 
