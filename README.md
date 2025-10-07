@@ -60,7 +60,7 @@ Aplicación JavaFX que gestiona datos de personas en una tabla con conexión a b
 ## 🚀 Instalación y ejecución
 
 
-✅ Paso 1: Configurar base de datos y credenciales en config.properties.
+✅ Paso 1: Configurar base de datos y credenciales creando el archivo config.properties en la carpeta resources.
 ✅ Paso 2: Lanzar docker con el contenedor mariaDb.
 ✅ Paso 3: Usar el script de la carpeta resources/SQL/init.sql para crear la base de datos.
 ✅ Paso 4: Usar mvn package para generar el jar y hacer dobleClick sobre èl.
