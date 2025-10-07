@@ -12,7 +12,7 @@ Aplicación JavaFX que gestiona datos de personas en una tabla con conexión a b
 
 ### 1. Código fuente
 
-
+```
 📁 /src/main/java
     ✅ App.java → Clase principal, inicializa JavaFX y carga la ventana.
     ✅ Lanzador.java → Encargado de ejecutar la aplicación (entrypoint alternativo).
@@ -26,7 +26,7 @@ Aplicación JavaFX que gestiona datos de personas en una tabla con conexión a b
     ✅ tableView.fxml → Vista en FXML con TableView para mostrar personas.
     ✅ css/styles.css → Estilos CSS para la interfaz.
     ✅ logback.xml → Configuración de logging.
-
+```
 
 ### 2. Bibliotecas adicionales
 
@@ -44,6 +44,8 @@ Aplicación JavaFX que gestiona datos de personas en una tabla con conexión a b
 ✅ Error de conexión a BD → Revisar `config.properties` (usuario, contraseña, URL).
 ✅ NullPointer en TableView → Verificar que FXML y Controlador estén vinculados correctamente.
 ✅ Revisar que el contenedor de mariaDb este en funcionamiento antes de ejecutar el jar.
+
+
 ---
 
 ## ⚙️ Requisitos de ejecución
