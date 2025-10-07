@@ -48,14 +48,14 @@ public class App extends Application {
         logger.info("Lanzando la aplicación");
 
         Locale locale = Locale.getDefault(); // o forzar new Locale("es", "ES")
-        ResourceBundle bundle = ResourceBundle.getBundle("com.gaizkaFrost.idiomas.mensajes", locale);
+        ResourceBundle bundle = ResourceBundle.getBundle("com.gaizkaFrost.idiomas.men", locale);
 
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/tableView.fxml"),bundle);
         Scene scene = new Scene(loader.load(), 600, 500);
         stage.setScene(scene);
         stage.setMinWidth(543);
-        stage.setMinHeight(309);
+        stage.setMinHeight(500);
         stage.setTitle("Adding/Deleting Rows in a TableView");
         stage.show();
 
