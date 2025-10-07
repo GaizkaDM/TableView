@@ -3,14 +3,19 @@ package com.gaizkaFrost.controlador;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import com.gaizkaFrost.modelos.Person;
 import com.gaizkaFrost.DAO.PersonDAO;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.List;
@@ -56,6 +61,18 @@ public class ControladorVentana {
         colFirstName.setCellValueFactory(new PropertyValueFactory<>("firstName"));
         colLastName.setCellValueFactory(new PropertyValueFactory<>("lastName"));
         colBirthDate.setCellValueFactory(new PropertyValueFactory<>("birthDate"));
+
+        tableView.setRowFactory(tv -> {
+            TableRow<Person> row = new TableRow<>();
+            row.setOnMouseClicked(event -> {
+                if (event.getClickCount() == 2 && !row.isEmpty()) {
+                    Person selected = row.getItem();
+                    openEditDialog(selected);
+                }
+            });
+            return row;
+        });
+
 
         refreshTable();
     }
@@ -182,6 +199,31 @@ public class ControladorVentana {
     private void handleAbout() {
         new Alert(Alert.AlertType.INFORMATION,
                 "Autor: Gaizka Rodríguez\nVersión: 1.0").showAndWait();
+    }
+
+    private void openEditDialog(Person person) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/gaizkaFrost/fxml/editPerson.fxml"));
+            Parent root = loader.load();
+
+            EditPersonController controller = loader.getController();
+            controller.setPerson(person);
+
+            Stage stage = new Stage();
+            stage.setTitle("Editar Persona");
+            stage.initOwner(tableView.getScene().getWindow());
+            stage.initModality(Modality.WINDOW_MODAL);
+            stage.setScene(new Scene(root));
+            stage.showAndWait();
+
+            if (controller.isSaved()) {
+                refreshTable();
+            }
+
+        } catch (IOException e) {
+            logger.error("Error abriendo ventana de edición", e);
+            new Alert(Alert.AlertType.ERROR, "Error al abrir la ventana de edición.").showAndWait();
+        }
     }
 
 }
