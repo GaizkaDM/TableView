@@ -13,10 +13,10 @@
 <?import javafx.scene.layout.VBox?>
 
 <?import javafx.scene.control.CustomMenuItem?>
-<VBox alignment="TOP_CENTER" spacing="10" stylesheets="@../css/styles.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gaizkaFrost.controlador.ControladorVentana" fx:resources="com.gaizkaFrost.idiomas.mensajes">
+<VBox alignment="TOP_CENTER" spacing="10" stylesheets="@../css/styles.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gaizkaFrost.controlador.ControladorVentana" >
    <MenuBar prefHeight="33.0" prefWidth="500.0">
      <menus>
-         <Menu text="%file">
+         <Menu text="%file" mnemonicParsing="true">
              <CustomMenuItem fx:id="menuClose" onAction="#handleClose">
                  <content>
                      <Label text="%close" mnemonicParsing="true">
@@ -28,7 +28,7 @@
              </CustomMenuItem>
          </Menu>
 
-         <Menu text="%help">
+         <Menu text="%help" mnemonicParsing="true">
              <CustomMenuItem fx:id="menuAbout" onAction="#handleAbout">
                  <content>
                      <Label text="%about" mnemonicParsing="true">
