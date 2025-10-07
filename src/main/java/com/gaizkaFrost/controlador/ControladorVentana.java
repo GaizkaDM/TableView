@@ -11,6 +11,7 @@ import javafx.stage.Stage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -85,6 +86,14 @@ public class ControladorVentana {
         } catch (IllegalArgumentException ex) {
             showAlert(Alert.AlertType.ERROR, "Error al añadir: " + ex.getMessage());
             logger.error("Error al añadir persona");
+        }
+        catch (SQLException e){
+            showAlert(Alert.AlertType.ERROR, "Error al añadir: " + e.getMessage()+ "a la base de datos");
+            logger.error("Error al añadir persona a la base de datos");
+        }
+        catch (Exception ex) {
+            showAlert(Alert.AlertType.ERROR, "Error inesperado: " + ex.getMessage());
+            logger.error("Error inesperado en handleAdd()", ex);
         }
     }
 
