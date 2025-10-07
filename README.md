@@ -58,11 +58,60 @@ Aplicación JavaFX que gestiona datos de personas en una tabla con conexión a b
 ```
 
 ---
+## ⚙️ Configuración del archivo config.properties
+
+Para que la aplicación pueda conectarse a la base de datos MariaDB, es necesario crear un archivo llamado config.properties en la raíz del proyecto (junto al pom.xml).
+
+⚠️ Este archivo no se incluye en el repositorio por motivos de seguridad, ya que contiene credenciales de acceso a la base de datos.
+
+🪜 Pasos para crearlo
+
+1️⃣ Abre tu editor de texto (Notepad, VSCode, IntelliJ, etc.).
+2️⃣ Crea un archivo nuevo y guárdalo con el nombre:
+
+config.properties
+
+
+En la carpeta resources de tu proyecto (C:\Users\TuUsuario\IdeaProjects\TableView\main\resources\config.properties).
+
+3️⃣ Copia dentro el siguiente contenido:
+
+# Configuración de conexión a la base de datos MariaDB
+
+# Url con la conexion en mariaDb
+db.url=jdbc:mariadb://localhost:3306/tableview_db
+
+# Configura tu usuario aqui
+db.user=USUARIO_AQUI
+
+# Configura tu contraseña
+db.password=CONTRASEÑA_AQUI
+
+4️⃣ Guarda los cambios.
+
+🧱 Comprobación
+
+Puedes verificar que el archivo está correctamente creado si en el explorador de tu proyecto ves algo como:
+```
+TableView/
+├─ pom.xml
+├─ src/
+├─ target/
+├─ config.properties   ✅
+└─ README.md
+```
+🧩 Nota importante
+
+Este archivo no se sube a GitHub porque ya está incluido en él .gitignore.
+
+Si otra persona quiere ejecutar el proyecto, deberá crear su propio config.properties siguiendo los pasos anteriores.
+
+Si no existe, la aplicación mostrará un aviso indicando que no se ha encontrado el archivo de configuración.
+---
 
 ## 🚀 Instalación y ejecución
 ```
-✅ Paso 1: Configurar base de datos y credenciales creando el archivo config.properties en la carpeta resources
-       utilizando el ejemplo config_example.properties que hay en el proyecto.
+✅ Paso 1: Configurar base de datos y credenciales en el archivo config.properties mencionado anteriormente.
 ✅ Paso 2: Lanzar docker con el contenedor mariaDb.
 ✅ Paso 3: Copiar y pegar el script de la carpeta resources/SQL/init.sql para crear la base de datos en el gestor que utilices.
 ✅ Paso 4: Usar mvn package para generar el jar y hacer dobleClick sobre èl.
