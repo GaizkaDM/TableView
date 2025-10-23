@@ -77,10 +77,10 @@ Para que la aplicación pueda conectarse a la base de datos MariaDB, es necesari
 db.url=jdbc:mariadb://localhost:3306/tableview_db
 
  Configura tu usuario aqui
-db.user=USUARIO_AQUI
+db.user=TU_USUARIO_AQUI (El que hayas usado tu en tu base de datos)
 
  Configura tu contraseña
-db.password=CONTRASEÑA_AQUI
+db.password=TU_CONTRASEÑA_AQUI (La que hayas utilizado tu en tu base de datos)
 ```
 4️⃣ Guarda los cambios.
 
