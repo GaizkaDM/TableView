@@ -38,9 +38,9 @@ public class PersonDAO {
             while (rs.next()) {
                 persons.add(new Person(
                         rs.getInt("id"),
-                        rs.getString("nombre"),
-                        rs.getString("apellido"),
-                        rs.getDate("fecha_nacimiento").toLocalDate()
+                        rs.getString("first_name"),
+                        rs.getString("last_name"),
+                        rs.getDate("birth_date").toLocalDate()
                 ));
             }
         } catch (SQLException e) {
